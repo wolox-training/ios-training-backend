@@ -31,7 +31,7 @@ curl https://ios-training-backend.herokuapp.com/api/v1/books
 
 ## Running locally
 
-Run the following commandas to set up the project:
+Run the following commands to set up the project:
 ```
 gem install bundler
 bundle install
@@ -74,16 +74,16 @@ git push heroku
 ```
 <br/>
 
-If you ever need to run database commands in the Heroku instance, you can do it by adding a `heroku` prefix, like this:
+If you ever need to run database commands on the Heroku instance, you can do it by adding a `heroku` prefix, like this:
 ```
 heroku rails db:seed 
 ```
 
-This executes `rails db:seed` in the Heroku instance.
+This executes `rails db:seed` on the Heroku instance.
 
 ## Logs
 
-The logs can be checked from the [Dashboard](https://dashboard.heroku.com/apps/swift-training-backend/activity).
+The logs can be checked from the [Dashboard](https://dashboard.heroku.com/apps/ios-training-backend/activity).
 
 You can also check the logs from the terminal by using the following command:
 ```
