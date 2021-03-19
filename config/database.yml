@@ -23,7 +23,11 @@ default: &default
 
 development:
   <<: *default
-  database: ios_training_backend_development
+  database: "wbooks"
+  hostname: "127.0.0.1"
+  username: "postgres"
+  port: 5432
+  password: null
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

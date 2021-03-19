@@ -12,6 +12,50 @@
 
 ActiveRecord::Schema.define(version: 2021_03_18_040857) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "Book", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "author", null: false
+    t.text "title", null: false
+    t.text "image"
+    t.text "year", null: false
+    t.text "genre", null: false
+    t.text "status"
+  end
+
+  create_table "Comment", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "userID", null: false
+    t.bigint "bookID", null: false
+  end
+
+  create_table "Rent", id: :bigint, default: nil, force: :cascade do |t|
+    t.bigint "userID", null: false
+    t.bigint "bookID", null: false
+    t.datetime "from", null: false
+    t.datetime "to", null: false
+    t.datetime "returnedAt"
+  end
+
+  create_table "Suggestion", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "title", null: false
+    t.text "author", null: false
+    t.text "link", null: false
+    t.bigint "userID", null: false
+  end
+
+  create_table "User", id: :bigint, default: nil, force: :cascade do |t|
+    t.text "username", null: false
+    t.text "password", null: false
+    t.text "image"
+  end
+
+  create_table "Wish", id: :bigint, default: nil, force: :cascade do |t|
+    t.bigint "userID", null: false
+    t.bigint "bookID", null: false
+  end
+
   create_table "book_suggestions", force: :cascade do |t|
     t.integer "book_id", null: false
     t.string "image"
@@ -44,6 +88,13 @@ ActiveRecord::Schema.define(version: 2021_03_18_040857) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_comments_on_book_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "fluent", id: :uuid, default: nil, force: :cascade do |t|
+    t.text "name", null: false
+    t.bigint "batch", null: false
+    t.datetime "createdAt"
+    t.datetime "updatedAt"
   end
 
   create_table "rents", force: :cascade do |t|
