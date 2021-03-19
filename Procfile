@@ -1,1 +1,1 @@
-web: Run serve --env production --port $PORT --hostname 0.0.0.0
+web: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-production}
